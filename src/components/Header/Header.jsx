@@ -79,7 +79,7 @@ const Header = ({ setIsModalOpen }) => {
               <Image
                 className="m-auto pt-1"
                 width={80}
-                height={100}
+                height={25}
                 quality={100}
                 src={"/header/google-logo-new.webp"}
                 alt="google logo"
