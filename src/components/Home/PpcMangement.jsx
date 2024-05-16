@@ -104,7 +104,7 @@ const PpcMangement = () => {
           <hr className="my-8" />
           <div className="relative  bg-white/80 bg-blend-multiply ">
             <h4 className="font-poppins text-[24px] md:text-[30px]  font-bold">
-              Google Ads Management
+            Facebook Ads Management Services
             </h4>
             <p className="font-poppins text-base text-[#222] text-justify my-4">
               Google Ads is a powerful advertising platform that can help
@@ -146,7 +146,7 @@ const PpcMangement = () => {
         <div>
           <div className="relative  bg-white/80 bg-blend-multiply ">
             <h4 className="relative font-poppins text-[24px] md:text-[30px]  font-bold">
-              Google Ads Management
+            Instagram Ads Management Services
             </h4>
             <p className="font-poppins text-base text-[#222] text-justify my-4">
               Google Ads is a powerful advertising platform that can help
@@ -173,7 +173,7 @@ const PpcMangement = () => {
           <hr className="my-8" />
           <div className="relative  bg-white/80 bg-blend-multiply  ">
             <h4 className="font-poppins text-[24px] md:text-[30px]  font-bold">
-              Google Ads Management
+            LinkedIn Ads Management
             </h4>
             <p className="font-poppins text-base text-[#222] text-justify my-4">
               Google Ads is a powerful advertising platform that can help

@@ -83,9 +83,14 @@ const SeoServices = () => {
   return (
     <div id="services" className=" py-20 text-white">
       <div className="w-[90%] mx-auto">
-        <span className="py-2 px-3 rounded bg-blue-200 font-medium font-poppins  text-black">
+        <Link
+          href={
+            "https://www.sibinfotech.com/search-engine-optimization-seo-services"
+          }
+          className="py-2 px-3 rounded bg-blue-200 font-medium font-poppins  text-black"
+        >
           SEO Services
-        </span>
+        </Link>
         <div className="flex max-lg:flex-col lg:justify-between lg:items-center mt-8">
           <h2 className="font-bold font-redhat text-[27px] md:text-4xl">
             Begin Your SEO Journey With Best SEO Company in{" "}

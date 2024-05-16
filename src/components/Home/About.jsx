@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import HeroForm from "./HeroForm";
+import Link from "next/link";
 
 const About = () => {
   return (
@@ -66,9 +67,12 @@ const About = () => {
         </div>
         <div className="lg:w-[70%]">
           <div className="">
-            <span className="font-medium bg-[#d7e4fd] p-2 rounded text-[14px]">
+            <Link
+              href={"https://www.sibinfotech.com/about-us"}
+              className="font-medium bg-[#d7e4fd] p-2 rounded text-[14px]"
+            >
               About SIB Infotech
-            </span>
+            </Link>
             <h1 className="text-[27px] md:text-[36px] leading-tight md:leading-[50px] mt-8 font-redhat font-bold">
               Revamp Your Online Presence with the{" "}
               <span className="text-blue-500">
