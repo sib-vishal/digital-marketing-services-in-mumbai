@@ -1,6 +1,6 @@
 var nodemailer = require("nodemailer");
 
-console.log(process.env.NODEMAILER_EMAIL)
+console.log(process.env.NODEMAILER_EMAIL);
 //-----------------------------------------------------------------------------
 export async function sendMail(subject, toEmail, message) {
   var transporter = nodemailer.createTransport({
@@ -15,7 +15,7 @@ export async function sendMail(subject, toEmail, message) {
     from: process.env.NODEMAILER_EMAIL,
     to: toEmail,
     subject: subject,
-    text: message,
+    html: message,
   };
 
   transporter.sendMail(mailOptions, function (error, info) {

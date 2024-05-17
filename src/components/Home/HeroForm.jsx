@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Services from "./Services";
+import axios from "axios";
 
 const HeroForm = ({ oneline }) => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,7 @@ const HeroForm = ({ oneline }) => {
     companyName: "",
     websiteUrl: "",
     email: "",
+    fromWhere: "Digital marketing services in mumbai",
   });
 
   const handleChange = (e) => {
@@ -19,9 +21,32 @@ const HeroForm = ({ oneline }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Form Data:", formData);
+
+    try {
+      const response = await fetch("/api/mailer", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const responseData = await response.json();
+      console.log("Response:", responseData);
+
+      setFormData({
+        name: "",
+        companyName: "",
+        websiteUrl: "",
+        email: "",
+        phoneNo: "",
+      });
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -39,7 +64,7 @@ const HeroForm = ({ oneline }) => {
           onSubmit={handleSubmit}
         >
           <div className={`grid   ${oneline ? "" : "grid-cols-2 gap-4 "}`}>
-            <div className="w-full relative group mt-[23px]  ">
+            <div className="w-full relative  group mt-[23px]  ">
               <input
                 type="text"
                 id="name"
@@ -47,11 +72,11 @@ const HeroForm = ({ oneline }) => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full h-3 py-4 px-4 text-sm peer bg-transparent outline-none focus:border-blue-500  border-b border-gray-500"
+                className="w-full  h-3 py-4 px-4 text-sm peer bg-transparent outline-none focus:border-blue-500  border-b border-gray-500"
               />
               <label
                 htmlFor="name"
-                className=" transform transition-all absolute top-0 left-0  h-full flex items-center pl-1 text-sm group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-[10px] peer-valid:-translate-y-full group-focus-within:pl-1 peer-valid:pl-1"
+                className=" transform transition-all absolute  top-0 left-0   flex items-center pl-1 text-sm group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-[18px] peer-valid:-translate-y-full group-focus-within:pl-1 peer-valid:pl-1"
               >
                 Name
               </label>
