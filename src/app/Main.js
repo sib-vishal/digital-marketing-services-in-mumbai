@@ -9,6 +9,7 @@ import { IoIosPaperPlane } from "react-icons/io";
 import { FaPhoneAlt } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
+import FooterBar from "@/components/Footer/FooterBar";
 
 const Main = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,12 +22,15 @@ const Main = ({ children }) => {
       </main>
       <Footer />
       <Model isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
-      <Link
+      {/* <Link
         href={"https://api.whatsapp.com/send?phone=918850525860&text=Hi"}
         className="z-[2] max-lg:hidden fixed bottom-4 w-fit  right-2  text-white   "
       >
         <Image width={50} height={50} src={"/whatsapp.png"} alt="whatsapp" />
-      </Link>
+      </Link> */}
+      <div className="z-[2] max-lg:hidden sticky bottom-0 ">
+        <FooterBar />
+      </div>
       <div className="z-[2] sticky bottom-0 lg:hidden grid grid-cols-3  text-white   ">
         <div className="py-3   bg-[#3979F8] text-white tooltip">
           <span class="tooltiptext">Call</span>

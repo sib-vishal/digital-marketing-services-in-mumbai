@@ -52,8 +52,15 @@ html {
 
 /* hero section */
 
+.shadowcustom {
+  box-shadow: 0 0.5rem 1rem #00000026 !important;
+}
+
 .listBanner:after {
   /* display: none; */
+  /* .shadow {
+    box-shadow: 0 .5rem 1rem #00000026!important;
+} */
 
   content: "";
   position: absolute;
@@ -215,6 +222,14 @@ html {
     rgba(227, 26, 32, 1) 100%
   );
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e53036', endColorstr='#e31a20',GradientType=0 );
+}
+
+.footerBar {
+  background: linear-gradient(
+    to bottom,
+    rgba(229, 48, 54, 1) 0%,
+    rgba(227, 26, 32, 1) 100%
+  );
 }
 
 /* tooltip */

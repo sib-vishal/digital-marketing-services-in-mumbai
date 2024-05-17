@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { TiSocialFacebook } from "react-icons/ti";
 import { FaPhoneAlt, FaTwitter } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -8,6 +8,7 @@ import { FaYoutube } from "react-icons/fa";
 import { FaSquareArrowUpRight } from "react-icons/fa6";
 import Image from "next/image";
 import { IoCloseSharp } from "react-icons/io5";
+import { Tooltip } from "antd";
 
 export const openSideBar = () => {
   document.querySelector("#sidebar").classList.remove("left-[-100%]");
@@ -17,16 +18,17 @@ export const closeSideBar = () => {
   document.querySelector("#sidebar").classList.remove("left-0");
   document.querySelector("#sidebar").classList.add("left-[-100%]");
 };
-// export const openSideBar = () => {
-//   document.querySelector("#sidebar").classList.remove("left-[-380px]");
-//   document.querySelector("#sidebar").classList.add("left-0");
-// };
-// export const closeSideBar = () => {
-//   document.querySelector("#sidebar").classList.remove("left-0");
-//   document.querySelector("#sidebar").classList.add("left-[-380px]");
-// };
 
 const SideBar = ({ setIsModalOpen }) => {
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+
+  const handleMouseEnter = (e) => {
+    setTooltipOpen(e);
+  };
+
+  const handleMouseLeave = (e) => {
+    setTooltipOpen(e);
+  };
   const links = [
     {
       url: "#about",
@@ -43,6 +45,33 @@ const SideBar = ({ setIsModalOpen }) => {
     {
       url: "#contact",
       linkName: "Contact Us",
+    },
+  ];
+
+  const socialLinks = [
+    {
+      href: "https://www.facebook.com/sibinfotech/",
+      icon: <TiSocialFacebook />,
+      id: "Facebook",
+      title: "Facebook",
+    },
+    {
+      href: "https://twitter.com/sibinfotech",
+      icon: <FaTwitter />,
+      id: "Twitter",
+      title: "Twitter",
+    },
+    {
+      href: "https://www.linkedin.com/company/sib-infotech",
+      icon: <FaLinkedinIn />,
+      id: "Linkedin",
+      title: "LinkedIn",
+    },
+    {
+      href: "https://www.youtube.com/user/sibinfotech",
+      icon: <FaYoutube />,
+      id: "Youtube",
+      title: "YouTube",
     },
   ];
 
@@ -91,20 +120,29 @@ const SideBar = ({ setIsModalOpen }) => {
           </button>
         </div>
         <div className="my-8">
-          <h1 className=" text-2xl font-redhat">Follow Us</h1>
-          <div className="flex items-center gap-4 text-2xl mt-3">
-            <Link href={"https://www.facebook.com/sibinfotech/"}>
-              <TiSocialFacebook />
-            </Link>
-            <Link href={"https://twitter.com/sibinfotech"}>
-              <FaTwitter />
-            </Link>
-            <Link href={"https://www.linkedin.com/company/sib-infotech"}>
-              <FaLinkedinIn />
-            </Link>
-            <Link href={"https://www.youtube.com/user/sibinfotech"}>
-              <FaYoutube />
-            </Link>
+          <h1 className=" text-[20px] font-medium font-redhat">Follow Us</h1>
+          <div className="flex items-center gap-6 text-xl mt-6 font-poppins">
+            {socialLinks.map((values, i) => {
+              return (
+                <Link
+                className="hover:text-[#e31a20]"
+                  href={values.href}
+                  onMouseEnter={() => {
+                    handleMouseEnter(values.id);
+                  }}
+                  onMouseLeave={() => {
+                    handleMouseLeave("");
+                  }}
+                >
+                  <Tooltip
+                    open={tooltipOpen == values.id ? true : false}
+                    title={values.title}
+                  >
+                    {values.icon}
+                  </Tooltip>
+                </Link>
+              );
+            })}
           </div>
         </div>
         <div className=" rounded overflow-hidden bg-white w-[60%] shadow-xl drop-shadow-sm">
