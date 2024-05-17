@@ -1,7 +1,29 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Services from "./Services";
 
 const HeroForm = ({ oneline }) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    phoneNo: "",
+    companyName: "",
+    websiteUrl: "",
+    email: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form Data:", formData);
+  };
+
   return (
     <>
       <div
@@ -12,13 +34,18 @@ const HeroForm = ({ oneline }) => {
         <h1 className="font-bold font-redhat text-[24px] md:text-[29px] text-center">
           Ready to get more leads
         </h1>
-        <form className="Hero_form text-[#999] font-poppins ">
+        <form
+          className="Hero_form text-[#999] font-poppins"
+          onSubmit={handleSubmit}
+        >
           <div className={`grid   ${oneline ? "" : "grid-cols-2 gap-4 "}`}>
             <div className="w-full relative group mt-[23px]  ">
               <input
                 type="text"
                 id="name"
                 name="name"
+                value={formData.name}
+                onChange={handleChange}
                 required
                 className="w-full h-3 py-4 px-4 text-sm peer bg-transparent outline-none focus:border-blue-500  border-b border-gray-500"
               />
@@ -34,6 +61,8 @@ const HeroForm = ({ oneline }) => {
                 type="text"
                 id="phoneNo"
                 name="phoneNo"
+                value={formData.phoneNo}
+                onChange={handleChange}
                 required
                 className="w-full h-3 py-4 px-4 text-sm peer bg-transparent outline-none focus:border-blue-500  border-b border-gray-500"
               />
@@ -49,16 +78,18 @@ const HeroForm = ({ oneline }) => {
           <div className="w-full relative group mt-[23px]">
             <input
               type="text"
-              name="comapanyName"
-              id="comapanyName"
+              name="companyName"
+              id="companyName"
+              value={formData.companyName}
+              onChange={handleChange}
               required
               className="w-full h-3 py-4 px-4 text-sm peer bg-transparent outline-none focus:border-blue-500  border-b border-gray-500"
             />
             <label
-              htmlFor="comapanyName"
+              htmlFor="companyName"
               className="transform transition-all absolute top-0 left-0 h-full flex items-center pl-1 text-sm group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-[10px] peer-valid:-translate-y-full group-focus-within:pl-1 peer-valid:pl-1"
             >
-              Comapany Name
+              Company Name
             </label>
           </div>
           <div className="w-full relative group mt-[23px]">
@@ -66,6 +97,8 @@ const HeroForm = ({ oneline }) => {
               type="text"
               name="websiteUrl"
               id="websiteUrl"
+              value={formData.websiteUrl}
+              onChange={handleChange}
               required
               className="w-full h-3 py-4 px-4 text-sm peer bg-transparent outline-none focus:border-blue-500  border-b border-gray-500"
             />
@@ -81,6 +114,8 @@ const HeroForm = ({ oneline }) => {
               type="text"
               id="email"
               name="email"
+              value={formData.email}
+              onChange={handleChange}
               required
               className="w-full h-3 py-4 px-4 text-sm peer bg-transparent outline-none focus:border-blue-500  border-b border-gray-500"
             />

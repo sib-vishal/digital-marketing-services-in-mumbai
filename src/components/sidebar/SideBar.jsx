@@ -125,6 +125,7 @@ const SideBar = ({ setIsModalOpen }) => {
             {socialLinks.map((values, i) => {
               return (
                 <Link
+                key={i}
                 className="hover:text-[#e31a20]"
                   href={values.href}
                   onMouseEnter={() => {
