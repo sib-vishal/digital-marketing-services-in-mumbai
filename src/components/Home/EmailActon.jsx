@@ -16,6 +16,7 @@ const EmailActon = () => {
         </div>
         <div>
           <Link
+             target="_blank"
             href={`mailto:contact@sibinfotech.com`}
             className=" font-poppins flex justify-center border border-white text-white hover:border-transparent   hover:bg-white hover:text-[#222]   transition-all duration-300  group   rounded-[5px] text-[18px] font-bold   items-center gap-1 p-[10px_30px]"
           >

@@ -41,7 +41,7 @@ const Hero = () => {
       <div className="w-[90%] mx-auto py-20  ">
         <div className="flex   ">
           <div className="lg:w-[calc(100%-404px)] w-full">
-            <h1 className="font-bold font-poppins text-[#58E1FA] max-md:text-center text-[17px] md:text-[20px]">
+            <h1 className="font-bold font-poppins text-[#58E1FA] max-md:text-center text-[17px] md:text-[22px]">
               #1 Digital Marketing Agency in India
             </h1>
             <ul className="listBanner  md:w-fit relative font-redhat font-bold text-4xl md:text-5xl max-md:text-center  text-white px-[10] my-7">

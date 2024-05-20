@@ -103,6 +103,7 @@ const SideBar = ({ setIsModalOpen }) => {
         </div>
         <div className="font-redhat flex flex-col  gap-4 mt-8">
           <Link
+             target="_blank"
             href="tel:+91 8850 525860"
             className="flex  text-[20px] items-center gap-2 font-bold text-blue-500 "
           >
@@ -126,6 +127,7 @@ const SideBar = ({ setIsModalOpen }) => {
               return (
                 <Link
                 key={i}
+                target="_blank"
                 className="hover:text-[#e31a20]"
                   href={values.href}
                   onMouseEnter={() => {

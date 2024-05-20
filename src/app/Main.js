@@ -34,7 +34,7 @@ const Main = ({ children }) => {
       <div className="z-[2] sticky bottom-0 lg:hidden grid grid-cols-3  text-white   ">
         <div className="py-3   bg-[#3979F8] text-white tooltip">
           <span class="tooltiptext">Call</span>
-          <Link href={"tel:+13156668001"}>
+          <Link target="_blank" href={"tel:+13156668001"}>
             <FaPhoneAlt className="text-[25px] mx-auto block " />
           </Link>
         </div>
@@ -47,6 +47,7 @@ const Main = ({ children }) => {
         <div className="py-3  bg-[#55cd6c] tooltip">
           <span class="tooltiptext">Whatsapp</span>
           <Link
+            target="_blank"
             href={"https://api.whatsapp.com/send?phone=918850525860&text=Hi"}
           >
             <IoLogoWhatsapp className="text-3xl mx-auto block " />

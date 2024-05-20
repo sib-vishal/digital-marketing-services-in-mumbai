@@ -9,6 +9,7 @@ const FooterBar = () => {
       <div className="w-[90%]  flex justify-between items-center gap-4  mx-auto">
         <div>
           <Link
+             target="_blank"
             href={"tel:+91 8850 525860"}
             className=" flex group justify-center items-center border    hover:border-white hover:bg-white text-white font-redhat hover:bg-opacity-0  transition-all duration-300  group   rounded-[10px] text-[14px] md:text-[16px] font-bold    gap-1 p-[10px_15px] lg:p-[10px_20px] uppercase"
           >
@@ -25,6 +26,7 @@ const FooterBar = () => {
         </div>
         <div>
           <Link
+             target="_blank"
             href={"https://api.whatsapp.com/send?phone=918850525860&text=Hi"}
             className=" flex group justify-center items-center border  bg-green-500  hover:bg-opacity-[1]  text-white hover:border-green-500 hover:text-white font-redhat bg-opacity-0  transition-all duration-300  group   rounded-[10px] text-[14px] md:text-[16px] font-bold    gap-1 p-[10px_15px] lg:p-[10px_20px] uppercase"
           >
