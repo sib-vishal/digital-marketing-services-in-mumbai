@@ -3,10 +3,12 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { FaSquareArrowUpRight } from "react-icons/fa6";
 import { v4 as uuidv4 } from "uuid";
+import Model from "./Model";
 
 const SeoServices = () => {
   const [open, setOpen] = useState(null);
   const [openDesktop, setOpenDesktop] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const seoServices = [
     {
@@ -82,71 +84,75 @@ const SeoServices = () => {
   }, []);
 
   return (
-    <div id="services" className=" py-20 text-white">
-      <div className="w-[90%] mx-auto">
-        <Link
-           target="_blank"
-          href={
-            "https://www.sibinfotech.com/search-engine-optimization-seo-services"
-          }
-          className="py-2 px-3 rounded bg-blue-200 font-medium font-poppins  text-black"
-        >
-          SEO Services
-        </Link>
-        <div className="flex max-lg:flex-col lg:justify-between lg:items-center mt-8">
-          <h2 className="font-bold font-redhat text-[27px] md:text-4xl">
-            Begin Your SEO Journey With Best SEO Company in{" "}
-            <br className="max-lg:hidden" /> Mumbai - India, to Grow Your
-            Business Online
-          </h2>
-          <button className=" font-redhat bg-[#E31A20] max-lg:w-fit max-lg:mt-8 group flex justify-center border border-black text-white  hover:bg-opacity-0  hover:text-[#E31A20] hover:border-[#E31A20]    transition-all duration-300  group   rounded-[10px] text-[14px]  font-medium   items-center gap-1 p-[10px_15px] lg:p-[12px_25px]">
-            {" "}
-            <span>LET'S DISCUSS</span>
-            <FaSquareArrowUpRight className="text-2xl group-hover:text-[#E31A20] text-white   " />
-          </button>
-        </div>
-        <hr className="text-gray-200 mb-4 mt-8 md:my-16" />
+    <>
+      <div id="services" className=" py-20 text-white">
+        <div className="w-[90%] mx-auto">
+          <Link
+            target="_blank"
+            href={
+              "https://www.sibinfotech.com/search-engine-optimization-seo-services"
+            }
+            className="py-2 px-3 rounded bg-blue-200 font-medium font-poppins  text-black"
+          >
+            SEO Services
+          </Link>
+          <div className="flex max-lg:flex-col lg:justify-between lg:items-center mt-8">
+            <h2 className="font-bold font-redhat text-[27px] md:text-4xl">
+              Begin Your SEO Journey With Best SEO Company in{" "}
+              <br className="max-lg:hidden" /> Mumbai - India, to Grow Your
+              Business Online
+            </h2>
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className=" font-redhat bg-[#E31A20] max-lg:w-fit max-lg:mt-8 group flex justify-center border border-black text-white  hover:bg-opacity-0  hover:text-[#E31A20] hover:border-[#E31A20]    transition-all duration-300  group   rounded-[10px] text-[14px]  font-medium   items-center gap-1 p-[10px_15px] lg:p-[12px_25px]"
+            >
+              {" "}
+              <span>LET'S DISCUSS</span>
+              <FaSquareArrowUpRight className="text-2xl group-hover:text-[#E31A20] text-white   " />
+            </button>
+          </div>
+          <hr className="text-gray-200 mb-4 mt-8 md:my-16" />
 
-        <div className="flex gap-8 ">
-          <div className="w-full lg:w-[30%]">
-            <div className="sticky top-10">
-              {seoServices.map((items, i) => {
-                return (
-                  <>
-                    <div key={rows[i].uid.slice(0, 4)} className=" ">
-                      <div
-                        className={` font-redhat flex max-lg:items-center gap-4 ${
-                          open == items.id
-                            ? "max-lg:text-[#e31a20]"
-                            : "grid-rows-[0fr]"
-                        }  ${
-                          openDesktop == items.id
-                            ? "lg:text-[#e31a20]"
-                            : "grid-rows-[0fr]"
-                        }`}
-                      >
-                        <div className="text-[24px] md:text-4xl font-bold ">
-                          {items.index}
+          <div className="flex gap-8 ">
+            <div className="w-full lg:w-[30%]">
+              <div className="sticky top-10">
+                {seoServices.map((items, i) => {
+                  return (
+                    <>
+                      <div key={rows[i].uid.slice(0, 4)} className=" ">
+                        <div
+                          className={` font-redhat flex max-lg:items-center gap-4 ${
+                            open == items.id
+                              ? "max-lg:text-[#e31a20]"
+                              : "grid-rows-[0fr]"
+                          }  ${
+                            openDesktop == items.id
+                              ? "lg:text-[#e31a20]"
+                              : "grid-rows-[0fr]"
+                          }`}
+                        >
+                          <div className="text-[24px] md:text-4xl font-bold ">
+                            {items.index}
+                          </div>
+                          <div>
+                            <a href={`#${items.id}`}>
+                              <h4
+                                className={`font-bold text-[18px] md:text-[22px] `}
+                                onClick={() => {
+                                  setOpen(items.id);
+                                }}
+                              >
+                                {items.title}
+                              </h4>
+                            </a>
+                          </div>
                         </div>
-                        <div>
-                          <a href={`#${items.id}`}>
-                            <h4
-                              className={`font-bold text-[18px] md:text-[22px] `}
-                              onClick={() => {
-                                setOpen(items.id);
-                              }}
-                            >
-                              {items.title}
-                            </h4>
-                          </a>
-                        </div>
-                      </div>
-                      <div
-                        className={`text-white  grid  transition-all duration-300 ${
-                          open == items.id
-                            ? "max-lg:grid-rows-[1fr] max-lg:!text-[#e31a20]"
-                            : "grid-rows-[0fr]"
-                        }
+                        <div
+                          className={`text-white  grid  transition-all duration-300 ${
+                            open == items.id
+                              ? "max-lg:grid-rows-[1fr] max-lg:!text-[#e31a20]"
+                              : "grid-rows-[0fr]"
+                          }
                         ${
                           openDesktop == items.id
                             ? "lg:grid-rows-[1fr] "
@@ -154,63 +160,66 @@ const SeoServices = () => {
                         }
 
                         `}
-                      >
-                        <div className="overflow-hidden">
-                          <p className="max-lg:hidden font-redhat font-bold border-l text-justify text-ellipsis overflow-hidden line-clamp-5 my-2 ml-4 pl-4  border-gray-300">
-                            {items.discription}
-                          </p>
-                          {/* for mobile */}
+                        >
+                          <div className="overflow-hidden">
+                            <p className="max-lg:hidden font-redhat font-bold border-l text-justify text-ellipsis overflow-hidden line-clamp-5 my-2 ml-4 pl-4  border-gray-300">
+                              {items.discription}
+                            </p>
+                            {/* for mobile */}
 
-                          <div className="lg:hidden mt-8 rounded-2xl overflow-hidden  shadow">
-                            <div className="p-[20px]  bg-white text-[#222] ">
-                              <h1 className="text-[#212529] font-redhat text-[24px] font-bold">
-                                {items.heading}
-                              </h1>
+                            <div className="lg:hidden mt-8 rounded-2xl overflow-hidden  shadow">
+                              <div className="p-[20px]  bg-white text-[#222] ">
+                                <h1 className="text-[#212529] font-redhat text-[24px] font-bold">
+                                  {items.heading}
+                                </h1>
 
-                              <p className=" my-[16px] font-poppins text-justify text-base ">
-                                {items.discription}
-                              </p>
-                              <p className="my-[8px] font-poppins text-justify text-base">
-                                {items.discription_2}
-                              </p>
+                                <p className=" my-[16px] font-poppins text-justify text-base ">
+                                  {items.discription}
+                                </p>
+                                <p className="my-[8px] font-poppins text-justify text-base">
+                                  {items.discription_2}
+                                </p>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
+                      <hr className="text-gray-300 my-4  md:my-8" />
+                    </>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="max-lg:hidden lg:w-[70%] flex flex-col gap-8 pb-32">
+              {seoServices.map((items, i) => {
+                return (
+                  <div
+                    key={`1${items.index}`}
+                    id={`${items.id}`}
+                    className="seoServices sticky top-0  rounded-2xl overflow-hidden  shadow"
+                  >
+                    <div className="p-[40px]  bg-white text-[#222] ">
+                      <h1 className="text-[#212529] font-redhat text-[30px] font-bold">
+                        {items.heading}
+                      </h1>
+
+                      <p className=" my-[16px] font-poppins text-base ">
+                        {items.discription}
+                      </p>
+                      <p className="my-[8px] font-poppins text-base">
+                        {items.discription_2}
+                      </p>
                     </div>
-                    <hr className="text-gray-300 my-4  md:my-8" />
-                  </>
+                  </div>
                 );
               })}
             </div>
           </div>
-          <div className="max-lg:hidden lg:w-[70%] flex flex-col gap-8 pb-32">
-            {seoServices.map((items, i) => {
-              return (
-                <div
-                  key={`1${items.index}`}
-                  id={`${items.id}`}
-                  className="seoServices sticky top-0  rounded-2xl overflow-hidden  shadow"
-                >
-                  <div className="p-[40px]  bg-white text-[#222] ">
-                    <h1 className="text-[#212529] font-redhat text-[30px] font-bold">
-                      {items.heading}
-                    </h1>
-
-                    <p className=" my-[16px] font-poppins text-base ">
-                      {items.discription}
-                    </p>
-                    <p className="my-[8px] font-poppins text-base">
-                      {items.discription_2}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
         </div>
       </div>
-    </div>
+
+      <Model isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+    </>
   );
 };
 
