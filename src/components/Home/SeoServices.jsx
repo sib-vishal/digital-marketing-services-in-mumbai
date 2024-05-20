@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { FaSquareArrowUpRight } from "react-icons/fa6";
 import { v4 as uuidv4 } from "uuid";
-import Model from "./Model";
+// import Model from "./Model";
 
 const SeoServices = () => {
   const [open, setOpen] = useState(null);
@@ -103,7 +103,7 @@ const SeoServices = () => {
               Business Online
             </h2>
             <button
-              onClick={() => setIsModalOpen(true)}
+              // onClick={() => setIsModalOpen(true)}
               className=" font-redhat bg-[#E31A20] max-lg:w-fit max-lg:mt-8 group flex justify-center border border-black text-white  hover:bg-opacity-0  hover:text-[#E31A20] hover:border-[#E31A20]    transition-all duration-300  group   rounded-[10px] text-[14px]  font-medium   items-center gap-1 p-[10px_15px] lg:p-[12px_25px]"
             >
               {" "}
@@ -218,7 +218,7 @@ const SeoServices = () => {
         </div>
       </div>
 
-      <Model isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+      {/* <Model isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} /> */}
     </>
   );
 };
